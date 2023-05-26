@@ -5,12 +5,17 @@ _base_ = [
     '../_base_/default_runtime.py']
 
 model = dict(
+    type='RetinaNet',
     backbone=dict(
+        type='ResNet',
         depth=101,
         init_cfg=dict(type='Pretrained',
-                      checkpoint='torchvision://resnet101'),
-    bbox_head=dict(num_classes=20)
-    )
+                      checkpoint='torchvision://resnet101')
+    ),
+    bbox_head=dict(
+        type='RetinaHead',
+        num_classes=20
+        )
 )
 
 data = dict(
