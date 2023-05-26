@@ -18,9 +18,10 @@ model = dict(
         start_level=1,
         add_extra_convs='on_input',
         num_outs=5),
+    # 1.3 Head配置
     bbox_head=dict(
         type='RetinaHead',
-        num_classes=80,
+        num_classes=80, # COCO数据集包含80类目标
         in_channels=256,
         stacked_convs=4,
         feat_channels=256,

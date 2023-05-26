@@ -29,8 +29,8 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=2,
+    samples_per_gpu=2,  # batch_size大小
+    workers_per_gpu=2,  # 每个GPU的线程数, 影响dataload的速度
     train=dict(
         type='RepeatDataset',
         times=3,

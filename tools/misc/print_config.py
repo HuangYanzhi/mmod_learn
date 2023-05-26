@@ -53,7 +53,9 @@ def main():
 
     if args.cfg_options is not None:
         cfg.merge_from_dict(args.cfg_options)
-    print(f'Config:\n{cfg.pretty_text}')
+    mylog = open('config.log', mode = 'a',encoding='utf-8')
+    print(f'Config:\n{cfg.pretty_text}', file=mylog)
+    mylog.close()
 
 
 if __name__ == '__main__':
