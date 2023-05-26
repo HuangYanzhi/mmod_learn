@@ -11,7 +11,7 @@ custom_hooks = [dict(type='NumClassCheckHook')]
 
 dist_params = dict(backend='nccl') # 用于设置分布式训练的参数，端口也同样可被设置。
 log_level = 'INFO'
-load_from = None
+load_from = None    # 从一个给定路径里加载模型作为预训练模型，它并不会消耗训练时间
 resume_from = None
 workflow = [('train', 1)]
 
