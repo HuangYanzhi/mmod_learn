@@ -107,6 +107,8 @@ def parse_args():
 
 def main():
     args = parse_args()
+    # mmcv.Config.fromfile 从配置⽂件解析配置信息, 并做适当更新,
+    # 包括环境搜集，预加载模型⽂件, 分布式设置，⽇志记录等
 
     cfg = Config.fromfile(args.config)
 
@@ -209,6 +211,9 @@ def main():
     meta['seed'] = seed
     meta['exp_name'] = osp.basename(args.config)
 
+    ###################################################################
+    ## 构建检测器mmdet/builder.py
+    # 这⾥依据config⽂件中的model这个字典,来构建模型,返回⼀个类对象
     model = build_detector(
         cfg.model,
         train_cfg=cfg.get('train_cfg'),
